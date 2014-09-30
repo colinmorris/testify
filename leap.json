@@ -1,0 +1,31 @@
+{"name": "Leap",
+  "module": "leap",
+  "function": "isLeapYear",
+  "testcases":
+[
+  {
+    "name": "known_leap_year",
+    "description": "a known leap year",
+    "input": 1996,
+    "expected": true
+  },
+  {
+    "name": "non_leap_year",
+    "description": "any old year",
+    "input": 1997,
+    "expected": false
+  }
+],
+"languageFormatters":
+{
+  "default":
+  {
+    "actual": "{function}({args})"
+  },
+  "objc": 
+  {
+    "actual": "[[[Year alloc] initWithCalendarYear:{input[0]}] isLeapYear]"
+  }
+}
+}
+    

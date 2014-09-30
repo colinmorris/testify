@@ -1,0 +1,33 @@
+{"name": "WordCount",
+  "module": "wordcount",
+  "function": "word_count",
+  "testcases":
+[
+  {
+    "name": "one_word",
+    "description": "counts one word",
+    "input": "word",
+    "function": "word_count",
+    "expected": {"word": 1}
+  },
+  {
+    "name": "one_of_each",
+    "description": "counts one of each",
+    "input": "word",
+    "function": "word_count",
+    "expected": {"word": 1}
+  }
+],
+"languageFormatters":
+{
+  "default":
+  {
+    "actual": "{function}({args})"
+  },
+  "objc":
+  {
+    "actual": "[[[WordCount alloc] initWithString:{args}] count]"
+  }
+}
+}
+    

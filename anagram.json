@@ -1,0 +1,29 @@
+{"name": "Anagram",
+  "module": "anagram",
+  "function": "detect anagrams",
+  "testcases":
+[
+  {
+    "description": "no matches",
+    "input": ["diaper", ["hello", "world", "zombies", "pants"]],
+    "expected": []
+  },
+  {
+    "description": "detects simple anagram",
+    "input": ["ant", ["tan", "stand", "at"]],
+    "expected": ["tan"]
+  }
+],
+"languageFormatters":
+{
+  "default":
+  {
+    "actual": "{function}({args})"
+  },
+  "objc": 
+  {
+    "actual": "[[[Anagram alloc] initWithString:{input[0]}] match:{input[1]}"
+  }
+}
+}
+    

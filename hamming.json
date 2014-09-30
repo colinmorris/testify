@@ -1,0 +1,49 @@
+{"name": "Hamming",
+  "module": "hamming",
+  "function": "hamming",
+  "testcases":
+[
+  {
+    "description": "empty strings",
+    "input": ["", ""],
+    "expected": 0
+  },
+  {
+    "description": "one nucleotide same",
+    "input": ["A", "A"],
+    "expected": 0
+  },
+  {
+    "description": "one nucleotide different",
+    "input": ["A", "G"],
+    "expected": 1
+  },
+  {
+    "description": "short nonequal",
+    "input": ["AT", "CT"],
+    "expected": 1
+  },
+  {
+    "description": "short no matches",
+    "input": ["AG", "CT"],
+    "expected": 2
+  },
+  {
+    "description": "long nonequal",
+    "input": ["GGACGA", "GGTCGA"],
+    "expected": 4
+  }
+],
+"languageFormatters":
+{
+  "default":
+  {
+    "actual": "{function}({args})"
+  },
+  "objc": 
+  {
+    "actual": "[Hamming compute:{input[0]} against:{input[1]}]"
+  }
+}
+}
+    
