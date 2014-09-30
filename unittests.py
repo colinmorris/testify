@@ -175,11 +175,21 @@ class PythonTestGen(TestGen):
   @glommer
   def add_case(self, case):
     yield 'def test_{}(self):'.format(namify(case['description'], self.FUN_NAMING)), 1
+    if isinstance(case['expected'], bool):
+      self.add_boolean_assertion(case)
+    else:
+      self.add_equality_assertion(case)
 
+  @glommer
+  def add_equality_assertion(self, case):
     yield 'self.assertEqual(', 2
     yield self.expected(case) + ',', 3
     yield self.actual(case), 3
     yield ')', 2
+    
+  @glommer
+  def add_boolean_assertion(self, case):    
+    yield 'self.assert{truthiness}({actual})'.format(truthiness=str(case['expected']), actual=self.actual(case)), 2
     
   def repr(self, obj):
     return repr(obj)
