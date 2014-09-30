@@ -4,16 +4,29 @@
   "testcases":
 [
   {
-    "name": "known_leap_year",
     "description": "a known leap year",
     "input": 1996,
     "expected": true
   },
   {
-    "name": "non_leap_year",
     "description": "any old year",
     "input": 1997,
     "expected": false
+  },
+  {
+    "description": "non leap even year",
+    "input": 1998,
+    "expected": false
+  },
+  {
+    "description": "century",
+    "input": 1900,
+    "expected": false
+  },
+  {
+    "description": "exceptional century",
+    "input": 2400,
+    "expected": true
   }
 ],
 "languageFormatters":
