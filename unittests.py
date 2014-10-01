@@ -285,10 +285,18 @@ class ObjCTestGen(TestGen):
     else:
       raise NotImplementedError(obj)
     
+  def string_escape(self, s):
+    # Why is this repr business necessary? Because we need to preserve literals like \n or \t
+    rep = repr(s)
+    if rep.startswith('u'):
+      rep = rep[1:]
+    assert rep[0] in "'\"" and rep[-1] in "'\""
+    rep = rep[1:-1]
+    return '@"{}"'.format(rep)
       
   def repr(self, obj):
     if isinstance(obj, basestring):
-      return '@"{}"'.format(obj)
+      return self.string_escape(obj)
     elif isinstance(obj, list):
       return '@[{}]'.format(', '.join(self.repr(ele) for ele in obj))
     elif isinstance(obj, dict):
